@@ -1,5 +1,4 @@
 from email_broadcasting.core._base import BaseMailBroadcaster
-from email_broadcasting.core._mixins import SmtpSSLMixin
 
 
 class MailBroadcasterSyncBase(BaseMailBroadcaster):
@@ -18,5 +17,5 @@ class MailBroadcasterSyncBase(BaseMailBroadcaster):
         )
 
 
-class MailBroadcasterSyncSmtpSSL(MailBroadcasterSyncBase, SmtpSSLMixin):
+class MailBroadcasterSyncSmtpSSL(MailBroadcasterSyncBase):
     pass

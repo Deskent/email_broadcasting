@@ -2,7 +2,6 @@ import abc
 import asyncio
 
 from email_broadcasting.core._base import BaseMailBroadcaster
-from email_broadcasting.core._mixins import SmtpSSLMixin
 
 
 class MailBroadcasterAsyncBase(BaseMailBroadcaster, abc.ABC):
@@ -22,5 +21,5 @@ class MailBroadcasterAsyncBase(BaseMailBroadcaster, abc.ABC):
         )
 
 
-class MailBroadcasterAsyncSmtpSSL(MailBroadcasterAsyncBase, SmtpSSLMixin):
+class MailBroadcasterAsyncSmtpSSL(MailBroadcasterAsyncBase):
     pass
