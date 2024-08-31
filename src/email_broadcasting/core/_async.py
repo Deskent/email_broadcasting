@@ -8,9 +8,9 @@ class MailBroadcasterAsyncBase(BaseMailBroadcaster, abc.ABC):
     async def send_emails(
         self,
         recipients: list[str],
-        subject: str = "test",
-        body: str = "test",
-        send_from: str = "control@corp-view.ru",
+        subject: str,
+        body: str,
+        send_from: str,
     ):
         return await asyncio.to_thread(
             self._send_emails,
