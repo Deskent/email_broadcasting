@@ -25,12 +25,13 @@ class BaseMailBroadcaster(abc.ABC):
         send_from: str,
         subject: str,
         body: str,
+        body_type: str = "plain",
     ) -> str:
         msg = MIMEMultipart()
         msg["From"] = send_from
         msg["Subject"] = subject
 
-        msg.attach(MIMEText(body, "plain"))
+        msg.attach(MIMEText(body, body_type))
 
         return msg.as_string()
 
@@ -40,6 +41,7 @@ class BaseMailBroadcaster(abc.ABC):
         subject: str,
         body: str,
         send_from: str,
+        body_type: str = "plain",
     ):
         with smtplib.SMTP_SSL(
             host=self.host,
@@ -51,6 +53,7 @@ class BaseMailBroadcaster(abc.ABC):
                 send_from=send_from,
                 subject=subject,
                 body=body,
+                body_type=body_type,
             )
             server.sendmail(
                 from_addr=send_from,
